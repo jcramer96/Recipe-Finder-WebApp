@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recipe Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Recipe Finder</h1>
+        <form>
+            <label for="search-term">Search for Recipes by Ingredients, Cuisine Styles, or Dietary Restrictions:</label>
+            <input type="text" id="search-term" name="recipe-search" />
+            <button type="submit">Search</button>
+        </form>
+    </header>
+    <main>
+        <!-- Display search results here -->
+        <div id="recipe-container"></div> <!-- Container to hold recipes -->
+        <button id="load-more">Load More</button> <!-- Load more button -->
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
