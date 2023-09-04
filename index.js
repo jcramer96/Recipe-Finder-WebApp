@@ -18,34 +18,48 @@ async function fetchRecipes(query) {
 
 // Function to display recipes in the UI
 function displayRecipes(recipes) {
-    const main = document.querySelector('main');
-    main.innerHTML = '';
+    const recipeContainer = document.querySelector('.recipe-container');
+    recipeContainer.innerHTML = '';
     
-    recipes.forEach(recipe => {
-        const recipeCard = document.createElement('div');
-        recipeCard.classList.add('recipe-card');
+    if (recipes.length === 0) {
+        // If no recipes were found, display a message
+        const noRecipesMessage = document.createElement('p');
+        noRecipesMessage.textContent = "Sorry, no recipes were found.";
+        recipeContainer.appendChild(noRecipesMessage);
+        recipeContainer.style.backgroundImage = 'none';
+    } else {
+        // If recipes were found, display them
+        recipes.forEach(recipe => {
+            // Create an anchor element for the entire recipe card
+            const recipeLink = document.createElement('a');
+            recipeLink.href = `https://www.google.com/search?q=${encodeURIComponent(recipe.title)}`;
+            recipeLink.target = "_blank"; // Open the link in a new tab
 
-        // Create an anchor element for the recipe link
-        const recipeLink = document.createElement('a');
-        recipeLink.href = `https://www.google.com/search?q=${encodeURIComponent(recipe.title)}`;
-        recipeLink.target = "_blank"; // Open the link in a new tab
-        recipeLink.textContent = recipe.title;
-        
-       // Create HTML elements to display recipe information
-       const recipeTitle = document.createElement('h2');
-       recipeTitle.textContent = recipe.title;
-       
-       const recipeImage = document.createElement('img');
-       recipeImage.src = recipe.image;
-       
-       // Append elements to the recipe card
-       recipeCard.appendChild(recipeLink);
-       recipeCard.appendChild(recipeTitle);
-       recipeCard.appendChild(recipeImage);
-       
-       // Append the recipe card to the main container
-        main.appendChild(recipeCard);
-    });
+            const recipeCard = document.createElement('div');
+            recipeCard.classList.add('recipe-card');
+
+            // Create HTML elements to display recipe information
+            const recipeTitle = document.createElement('h2');
+            recipeTitle.textContent = recipe.title.toUpperCase();
+
+            const recipeImage = document.createElement('img');
+            recipeImage.src = recipe.image;
+            recipeImage.classList.add('recipe-img');
+
+            //returns the background image
+            recipeContainer.style.backgroundImage = 'url(img/food-background.jpeg)'
+
+            // Append elements to the recipe card
+            recipeCard.appendChild(recipeImage);
+            recipeCard.appendChild(recipeTitle);
+
+            // Append the recipe card to the link
+            recipeLink.appendChild(recipeCard);
+
+            // Append the link to the main container
+            recipeContainer.appendChild(recipeLink);
+        });
+    }
 }
 
 // Handle form submission

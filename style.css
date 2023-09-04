@@ -1,0 +1,152 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Hind', sans-serif;
+    font-size: 1.2rem;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    justify-content: center;
+    background-color: rgb(132, 162, 89);
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    color: white;
+    text-align: center;
+    margin-top: 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 1.3rem;
+    color: #13262F;
+    text-align: center;
+}
+
+p {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.search-box {
+    width: 90%;
+    height: 2rem;
+    margin: 10px auto auto auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.search {
+    width: 80%;
+    height: 1.5rem;
+    border: none;
+    outline: none;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    width: 20px;
+    margin-left: 5px;
+}
+
+main {
+    width: 100vw;
+}
+
+.recipe-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-image: url(img/food-background.jpeg);
+    margin-top: 25px;
+}
+
+.recipe-card {
+    width: 75%;
+    border: 2px solid #13262F;
+    background-color: white;
+    border-radius: 10px;
+    margin: 15px auto auto auto;
+}
+
+.recipe-card:last-of-type {
+    margin-bottom: 25px;
+}
+
+.recipe-img {
+    width: 70%;
+    display: block;
+    margin: 10px auto auto auto;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+} /* gets rid of autofill shadow on input field*/
+
+@media only screen and (min-width: 760px) {
+    h1 {
+        margin-top: 50px;
+    }
+
+    p {
+        margin-top: 15px;
+        grid-area: 1 / span 2;
+    }
+
+    .search-box {
+        width: 50%;
+        margin: 30px auto auto auto;
+    }
+
+    .recipe-card {
+        width: 85%;
+    }
+
+    .recipe-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and  (min-width: 1024px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    p {
+        font-size: 1.3rem;
+        grid-area: 1 / span 3;
+    }
+
+    .search-box {
+        width: 30%;
+    }
+
+    .recipe-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
